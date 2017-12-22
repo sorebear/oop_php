@@ -11,6 +11,7 @@ class Database {
     }
 
     public function open_db_connection() {
+
         $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         
         if ($this->connection->connect_errno) {
@@ -51,6 +52,7 @@ class Database {
         return $this->connection->insert_id;
 
     }
+
 }
 
 $database = new Database();
