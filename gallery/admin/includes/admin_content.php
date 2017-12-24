@@ -10,9 +10,9 @@
 
             <?php 
             
-                // $user_1 = User::find_user_by_id(1);
+                $user_1 = User::find_user_by_id(1);
                 
-                // print_r($user_1);
+                print_r($user_1);
 
 
             ?>
