@@ -10,9 +10,14 @@
 
             <?php 
             
-                $user_1 = User::find_user_by_id(0);
-                
-                print_r($user_1);
+                $user_1 = User::find_user_by_id(1);
+                echo $user_1->username;
+
+                // $users = User::find_all_users();
+
+                // foreach($users as $user) {
+                //     echo $user->username . "<br>";
+                // }
 
 
             ?>
@@ -26,8 +31,5 @@
                 </li>
             </ol>
         </div>
-    </div>
-    <!-- /.row -->
-
-</div>
-<!-- /.container-fluid -->
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->

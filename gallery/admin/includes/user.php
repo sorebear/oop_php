@@ -31,18 +31,22 @@ class User {
    }
 
    public static function find_user_by_id($id) {
-      $result_set = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
-      $found_user = mysqli_fetch_array($result_set);
-      return self::instantiation($found_user);
+      global $database;
+      $the_result_array = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
+      return !empty($the_result_array) ? array_shift($the_result_array) : false;
    }
 
    private static function find_this_query($sql) {
       global $database;
       $result_set = $database->query($sql);
-      return $result_set;
+      $user_object_array = array();
+
+      while ($row = mysqli_fetch_array($result_set)) {
+         $user_object_array[] = self::instantiation($row); 
+      }
+
+      return $user_object_array;
    }
-
 }
-
 
 ?>
